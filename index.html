@@ -16,15 +16,18 @@
         }
 
         :root {
-            --primary-color: #5A5A5C;
-            --secondary-color: #ACC0CA;
-            --accent-color: #004C54;
-            --text-dark: #000000;
-            --text-light: #A5ACAF;
-            --bg-light: #f9f9f9;
+            --primary-color: #3498DB;
+            --secondary-color: #004C54;
+            --accent-color: #27AE60;
+            --text-dark: #2C3E50;
+            --text-light: #7F8C8D;
+            --bg-light: #ECF0F1;
             --white: #ffffff;
             --shadow: 0 2px 10px rgba(0,0,0,0.1);
             --transition: all 0.3s ease;
+            --warm-yellow: #F39C12;
+            --vibrant-red: #E74C3C;
+            --eagles-green: #004C54;
         }
 
         body {
@@ -146,6 +149,7 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             background: var(--secondary-color);
+            color: var(--white);
         }
 
         .btn-secondary {
@@ -165,7 +169,9 @@
         }
 
         .btn-accent:hover {
-            background: var(--primary-color);
+            background: #229954;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
 
         /* Credibility Bar */
@@ -231,8 +237,8 @@
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            border-left: 4px solid var(--accent-color);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+            border-left: 4px solid var(--primary-color);
         }
 
         .card-icon {
@@ -265,7 +271,7 @@
             background: var(--white);
             padding: 2rem;
             border-radius: 10px;
-            border-left: 4px solid var(--accent-color);
+            border-left: 4px solid var(--primary-color);
             box-shadow: var(--shadow);
         }
 
@@ -300,7 +306,8 @@
 
         .item-card:hover {
             border-color: var(--accent-color);
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.2);
+            transform: translateY(-3px);
         }
 
         .item-icon {
@@ -377,7 +384,7 @@
 
         /* Footer */
         footer {
-            background: var(--primary-color);
+            background: var(--text-dark);
             color: var(--white);
             padding: 3rem 2rem 1rem;
         }
@@ -392,7 +399,7 @@
         }
 
         .footer-section h4 {
-            color: var(--secondary-color);
+            color: var(--warm-yellow);
             margin-bottom: 1rem;
         }
 
@@ -440,12 +447,12 @@
             box-shadow: var(--shadow);
             cursor: pointer;
             transition: var(--transition);
-            border-left: 4px solid var(--secondary-color);
+            border-left: 4px solid var(--primary-color);
         }
 
         .faq-item:hover {
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-            border-left-color: var(--accent-color);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+            border-left-color: var(--secondary-color);
         }
 
         .faq-question {
@@ -642,8 +649,8 @@
                 <div className="fade-in">
                     <section className="hero">
                         <div className="hero-content">
-                            <h1>Providing Clothing, Essentials, and Hope to Communities in Need.</h1>
-                            <p>A volunteer-led 501(c)(3) nonprofit delivering garments, shoes, blankets, and prayer directly to people who need them most.</p>
+                            <h1>Bringing Clothing, Hope, and a Little Help to Those Who Need It</h1>
+                            <p>We're a small group of volunteers who hit the streets every Sunday with clothes, blankets, and whatever else folks need. All volunteer-run. No fancy office. Just neighbors helping neighbors.</p>
                             <div className="cta-buttons">
                                 <button className="btn btn-primary" onClick={() => navigateTo('donate')}>
                                     Give Essentials to Someone in Need
@@ -672,28 +679,28 @@
                         <div className="card-grid">
                             <div className="card">
                                 <div className="card-icon">📦</div>
-                                <h3>Deliver Essentials Weekly</h3>
-                                <p>Every Sunday, our volunteer team brings clothing, shoes, socks, blankets, and hygiene items directly to people experiencing homelessness or hardship.</p>
+                                <h3>We Deliver Every Week</h3>
+                                <p>Rain or shine, our volunteers are out there every Sunday bringing clothes, shoes, blankets, hygiene stuff—whatever people need most. We hand it straight to folks who are struggling.</p>
                             </div>
                             <div className="card">
                                 <div className="card-icon">🙏</div>
-                                <h3>Offer Prayer and Encouragement</h3>
-                                <p>We provide more than physical needs. Our volunteers offer prayer, conversation, and human connection to anyone who welcomes it.</p>
+                                <h3>Prayer and Real Conversation</h3>
+                                <p>Look, we know people need more than just stuff. So we take time to actually talk. If someone wants prayer, we're there for that too. No pressure, no agenda—just genuine care.</p>
                             </div>
                             <div className="card">
                                 <div className="card-icon">🤝</div>
-                                <h3>Build Community Through Service</h3>
-                                <p>Every delivery is an opportunity to demonstrate dignity, respect, and care. We believe everyone deserves to be seen and valued.</p>
+                                <h3>Building Community, One Person at a Time</h3>
+                                <p>Every time we go out, it's a chance to treat someone with respect and show them they matter. Because they do. Everyone deserves dignity, no matter their situation.</p>
                             </div>
                         </div>
                     </section>
 
                     <section className="bg-light">
                         <div className="story-content">
-                            <h2>Why We Do This Work</h2>
-                            <p>Garments From God was founded by volunteers who saw people in their community going without basic necessities. What started as a small group handing out coats and socks has grown into a consistent weekly outreach that serves dozens of individuals.</p>
-                            <p>We are not a large organization. We are neighbors serving neighbors. Every Sunday, our team loads up donated items and heads out to meet people where they are—on street corners, under bridges, in parks. We listen. We pray if they want prayer. We offer what we have.</p>
-                            <p>This work is sustained entirely by volunteers and community donations. No one on our team is paid. Every dollar goes directly to purchasing or collecting essentials that make a real difference in someone's day.</p>
+                            <h2>Why We Started This</h2>
+                            <p>Garments From God started when a few of us noticed people in our neighborhood didn't have warm clothes during winter. So we collected what we could—coats, socks, blankets—and started handing them out every Sunday. That was back in 2022.</p>
+                            <p>We're not some big organization with a headquarters. We're just regular people who think everyone deserves basics like warm clothes and a friendly face. Every Sunday morning, we load up whatever's been donated and go find folks who need it. Sometimes it's street corners, sometimes parks. We chat, share what we've got, and pray with anyone who wants that.</p>
+                            <p>Nobody gets paid for this. It's all volunteers and donations from people in the community. Every single dollar or donated item goes straight to the people we're trying to help.</p>
                         </div>
                     </section>
 
@@ -737,10 +744,10 @@
                     </section>
 
                     <section>
-                        <h2>Your Support Goes Directly to Those in Need</h2>
+                        <h2>Where Your Donation Actually Goes</h2>
                         <div className="story-content">
-                            <p>We are 100% volunteer-run. No salaries. No overhead costs. Every donation—whether clothing or cash—is used to serve people experiencing hardship in our community.</p>
-                            <p>As a registered 501(c)(3) nonprofit, all financial contributions are tax-deductible. You will receive a donation receipt for your records.</p>
+                            <p>Here's the deal: we're 100% volunteer-run. Nobody's getting a paycheck. No office rent. No admin fees eating up your donation.</p>
+                            <p>When you give clothes or money, it goes straight to the people who need it. That's it. We're a registered 501(c)(3), so financial donations are tax-deductible, and you'll get a receipt for your records.</p>
                             <button className="btn btn-primary" onClick={() => navigateTo('donate')} style={{marginTop: '1rem'}}>Donate With Confidence</button>
                         </div>
                     </section>
@@ -757,19 +764,19 @@
                     </section>
 
                     <section>
-                        <h2>Why We Exist</h2>
+                        <h2>What We're All About</h2>
                         <div className="story-content">
-                            <p>Garments From God exists to provide clothing, essentials, and hope to people experiencing homelessness or hardship in our community. We believe that everyone deserves to be treated with dignity and respect, regardless of their circumstances.</p>
-                            <p>Our mission is simple: show up every Sunday, bring what people need, and treat them like they matter.</p>
+                            <p>Garments From God exists because we saw people in our community without basic things like warm clothes and toiletries. We figured we could do something about that.</p>
+                            <p>Our whole mission boils down to this: show up every Sunday, bring what folks need, and treat them like human beings. That's it.</p>
                         </div>
                     </section>
 
                     <section className="bg-light">
-                        <h2>Our Story</h2>
+                        <h2>How This Started</h2>
                         <div className="story-content">
-                            <p>Garments From God began when a small group of volunteers noticed people in their neighborhood going without warm clothing during winter. They started collecting coats, blankets, and socks, then began distributing them every Sunday.</p>
-                            <p>What started as a handful of people serving a few individuals has grown into a consistent weekly outreach supported by a dedicated volunteer team and generous community donors.</p>
-                            <p>We remain entirely volunteer-run. No one receives a salary. Every resource goes directly to the people we serve.</p>
+                            <p>It started in winter 2022. A handful of us noticed people in the neighborhood didn't have warm clothes. So we collected what we could—coats, blankets, socks—and started handing them out on Sundays.</p>
+                            <p>What began as maybe 5 people helping a few folks has grown. Now we've got 10-12 regular volunteers, and we're reaching dozens of people every week thanks to donations from the community.</p>
+                            <p>Still, nobody gets paid. It's all volunteers. Every donated item, every dollar—it all goes to the people we're trying to help.</p>
                         </div>
                     </section>
 
@@ -1185,6 +1192,58 @@
                                 </div>
                                 <button type="submit" className="btn btn-primary" style={{width: '100%'}}>
                                     Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </section>
+
+                    <section className="bg-light">
+                        <h2>Share Your Feedback or Concern</h2>
+                        <div className="story-content">
+                            <p>We value transparency and continuous improvement. If you have experienced any issues with our services, volunteer coordination, or donation handling, please let us know. Your feedback helps us serve our community better.</p>
+                            <p>All complaints are reviewed confidentially and addressed promptly by our leadership team.</p>
+                        </div>
+                        <div className="form-container">
+                            {formSubmitted && (
+                                <div className="success-message">
+                                    Thank you for your feedback. We take all concerns seriously and will respond within 48 hours.
+                                </div>
+                            )}
+                            <form onSubmit={handleFormSubmit}>
+                                <div className="form-group">
+                                    <label>Your Name</label>
+                                    <input type="text" placeholder="Optional - you may remain anonymous" />
+                                </div>
+                                <div className="form-group">
+                                    <label>Email Address</label>
+                                    <input type="email" placeholder="Required if you want a response" />
+                                </div>
+                                <div className="form-group">
+                                    <label>Type of Concern *</label>
+                                    <select required>
+                                        <option value="">Select type</option>
+                                        <option value="service">Service Quality</option>
+                                        <option value="volunteer">Volunteer Experience</option>
+                                        <option value="donation">Donation Handling</option>
+                                        <option value="communication">Communication Issue</option>
+                                        <option value="conduct">Staff/Volunteer Conduct</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div className="form-group">
+                                    <label>Date of Incident (if applicable)</label>
+                                    <input type="date" />
+                                </div>
+                                <div className="form-group">
+                                    <label>Details of Your Concern *</label>
+                                    <textarea required placeholder="Please provide as much detail as possible to help us address your concern effectively..."></textarea>
+                                </div>
+                                <div className="form-group">
+                                    <label>Preferred Resolution</label>
+                                    <textarea placeholder="How would you like us to resolve this issue? (Optional)"></textarea>
+                                </div>
+                                <button type="submit" className="btn btn-primary" style={{width: '100%'}}>
+                                    Submit Feedback
                                 </button>
                             </form>
                         </div>
