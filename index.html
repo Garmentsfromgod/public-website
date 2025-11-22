@@ -9,12 +9,7 @@
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --primary-color: #3498DB;
             --secondary-color: #004C54;
@@ -26,545 +21,91 @@
             --shadow: 0 2px 10px rgba(0,0,0,0.1);
             --transition: all 0.3s ease;
             --warm-yellow: #F39C12;
-            --vibrant-red: #E74C3C;
             --eagles-green: #004C54;
         }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: var(--white);
-            box-shadow: var(--shadow);
-            z-index: 1000;
-            transition: var(--transition);
-        }
-
-        nav.scrolled {
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-color);
-            cursor: pointer;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--accent-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 80px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--white);
-            padding: 6rem 2rem;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: var(--white);
-            color: var(--accent-color);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            background: var(--secondary-color);
-            color: var(--white);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-secondary:hover {
-            background: var(--white);
-            color: var(--accent-color);
-        }
-
-        .btn-accent {
-            background: var(--accent-color);
-            color: var(--white);
-        }
-
-        .btn-accent:hover {
-            background: #229954;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-        }
-
-        /* Credibility Bar */
-        .credibility-bar {
-            background: var(--bg-light);
-            padding: 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .credibility-item {
-            text-align: center;
-            max-width: 300px;
-        }
-
-        .credibility-item strong {
-            color: var(--accent-color);
-            font-size: 1.1rem;
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        section.bg-light {
-            background: var(--bg-light);
-            max-width: 100%;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--accent-color);
-            text-align: center;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent-color);
-        }
-
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .card-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Story Section */
-        .story-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .story-content p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-light);
-        }
-
-        /* Impact Section */
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .testimonial {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--primary-color);
-            box-shadow: var(--shadow);
-        }
-
-        .testimonial-quote {
-            font-size: 1.1rem;
-            font-style: italic;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--accent-color);
-        }
-
-        /* Donation Items Grid */
-        .items-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .item-card {
-            background: var(--white);
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            border: 2px solid var(--secondary-color);
-            transition: var(--transition);
-        }
-
-        .item-card:hover {
-            border-color: var(--accent-color);
-            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.2);
-            transform: translateY(-3px);
-        }
-
-        .item-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Forms */
-        .form-container {
-            max-width: 600px;
-            margin: 2rem auto;
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        input, textarea, select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid var(--secondary-color);
-            border-radius: 5px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: var(--transition);
-        }
-
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: var(--accent-color);
-        }
-
-        textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        /* Donation Amounts */
-        .donation-amounts {
-            display: flex;
-            gap: 1rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .amount-btn {
-            padding: 1rem 2rem;
-            border: 2px solid var(--accent-color);
-            background: var(--white);
-            color: var(--accent-color);
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .amount-btn:hover, .amount-btn.active {
-            background: var(--accent-color);
-            color: var(--white);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: var(--white);
-            padding: 3rem 2rem 1rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            color: var(--warm-yellow);
-            margin-bottom: 1rem;
-        }
-
-        .footer-section a {
-            color: var(--white);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-            transition: var(--transition);
-        }
-
-        .footer-section a:hover {
-            color: var(--secondary-color);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.7);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-icon {
-            font-size: 1.5rem;
-            color: var(--white);
-            transition: var(--transition);
-        }
-
-        .social-icon:hover {
-            color: var(--secondary-color);
-        }
-
-        /* FAQ Section */
-        .faq-item {
-            background: var(--white);
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            cursor: pointer;
-            transition: var(--transition);
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .faq-item:hover {
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
-            border-left-color: var(--secondary-color);
-        }
-
-        .faq-question {
-            font-weight: 600;
-            color: var(--accent-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .faq-answer {
-            margin-top: 1rem;
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        /* Newsletter */
-        .newsletter-form {
-            display: flex;
-            gap: 1rem;
-            max-width: 500px;
-            margin: 2rem auto;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-        }
-
-        /* Responsive */
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; line-height: 1.6; color: var(--text-dark); overflow-x: hidden; }
+        nav { position: fixed; top: 0; width: 100%; background: var(--white); box-shadow: var(--shadow); z-index: 1000; transition: var(--transition); }
+        nav.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--secondary-color); cursor: pointer; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-dark); text-decoration: none; font-weight: 500; transition: var(--transition); cursor: pointer; }
+        .nav-links a:hover { color: var(--primary-color); }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--secondary-color); }
+        .hero { margin-top: 80px; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: var(--white); padding: 6rem 2rem; text-align: center; }
+        .hero-content { max-width: 900px; margin: 0 auto; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; line-height: 1.2; }
+        .hero p { font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.95; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 1rem 2rem; border: none; border-radius: 5px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: var(--transition); text-decoration: none; display: inline-block; }
+        .btn-primary { background: var(--white); color: var(--secondary-color); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); background: var(--secondary-color); color: var(--white); }
+        .btn-secondary { background: transparent; color: var(--white); border: 2px solid var(--white); }
+        .btn-secondary:hover { background: var(--white); color: var(--secondary-color); }
+        .btn-accent { background: var(--accent-color); color: var(--white); }
+        .btn-accent:hover { background: #229954; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+        .credibility-bar { background: var(--bg-light); padding: 2rem; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; border-bottom: 1px solid #e0e0e0; }
+        .credibility-item { text-align: center; max-width: 300px; }
+        .credibility-item strong { color: var(--secondary-color); font-size: 1.1rem; }
+        section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+        section.bg-light { background: var(--bg-light); max-width: 100%; }
+        h2 { font-size: 2.5rem; margin-bottom: 2rem; color: var(--secondary-color); text-align: center; }
+        h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--secondary-color); }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .card { background: var(--white); padding: 2rem; border-radius: 10px; box-shadow: var(--shadow); transition: var(--transition); }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3); border-left: 4px solid var(--primary-color); }
+        .card-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .story-content { max-width: 800px; margin: 0 auto; }
+        .story-content p { margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8; color: var(--text-light); }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .testimonial { background: var(--white); padding: 2rem; border-radius: 10px; border-left: 4px solid var(--primary-color); box-shadow: var(--shadow); }
+        .testimonial-quote { font-size: 1.1rem; font-style: italic; margin-bottom: 1rem; color: var(--text-dark); }
+        .testimonial-author { font-weight: 600; color: var(--secondary-color); }
+        .items-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .item-card { background: var(--white); padding: 1.5rem; border-radius: 8px; text-align: center; border: 2px solid var(--bg-light); transition: var(--transition); }
+        .item-card:hover { border-color: var(--accent-color); box-shadow: 0 4px 15px rgba(39, 174, 96, 0.2); transform: translateY(-3px); }
+        .item-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .form-container { max-width: 600px; margin: 2rem auto; background: var(--white); padding: 2rem; border-radius: 10px; box-shadow: var(--shadow); }
+        .form-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark); }
+        input, textarea, select { width: 100%; padding: 0.75rem; border: 2px solid var(--bg-light); border-radius: 5px; font-size: 1rem; font-family: inherit; transition: var(--transition); }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: var(--primary-color); }
+        textarea { min-height: 150px; resize: vertical; }
+        .donation-amounts { display: flex; gap: 1rem; margin: 2rem 0; flex-wrap: wrap; justify-content: center; }
+        .amount-btn { padding: 1rem 2rem; border: 2px solid var(--secondary-color); background: var(--white); color: var(--secondary-color); border-radius: 5px; cursor: pointer; font-size: 1.1rem; font-weight: 600; transition: var(--transition); }
+        .amount-btn:hover, .amount-btn.active { background: var(--secondary-color); color: var(--white); }
+        footer { background: var(--text-dark); color: var(--white); padding: 3rem 2rem 1rem; }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-section h4 { color: var(--warm-yellow); margin-bottom: 1rem; }
+        .footer-section a { color: var(--white); text-decoration: none; display: block; margin-bottom: 0.5rem; transition: var(--transition); cursor: pointer; }
+        .footer-section a:hover { color: var(--primary-color); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
+        .social-links { display: flex; gap: 1rem; margin-top: 1rem; }
+        .social-icon { font-size: 1.5rem; color: var(--white); transition: var(--transition); }
+        .social-icon:hover { color: var(--primary-color); }
+        .faq-item { background: var(--white); padding: 1.5rem; margin-bottom: 1rem; border-radius: 8px; box-shadow: var(--shadow); cursor: pointer; transition: var(--transition); border-left: 4px solid var(--primary-color); }
+        .faq-item:hover { box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2); border-left-color: var(--secondary-color); }
+        .faq-question { font-weight: 600; color: var(--secondary-color); display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { margin-top: 1rem; color: var(--text-light); line-height: 1.8; }
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--white);
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: var(--shadow);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            .credibility-bar {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .donation-amounts {
-                flex-direction: column;
-            }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 2rem; box-shadow: var(--shadow); }
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            h2 { font-size: 2rem; }
+            .credibility-bar { flex-direction: column; gap: 1rem; }
+            .cta-buttons { flex-direction: column; }
+            .donation-amounts { flex-direction: column; }
         }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        /* Success Message */
-        .success-message {
-            background: #d4edda;
-            border: 1px solid #c3e6cb;
-            color: #155724;
-            padding: 1rem;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
+        html { scroll-behavior: smooth; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in { animation: fadeIn 0.6s ease-out; }
+        .success-message { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 1rem; border-radius: 5px; margin-bottom: 1rem; text-align: center; }
     </style>
 </head>
 <body>
     <div id="root"></div>
-
     <script type="text/babel">
         const { useState, useEffect } = React;
 
@@ -576,61 +117,34 @@
             const [formSubmitted, setFormSubmitted] = useState(false);
 
             useEffect(() => {
-                const handleScroll = () => {
-                    setScrolled(window.scrollY > 50);
-                };
+                const handleScroll = () => setScrolled(window.scrollY > 50);
                 window.addEventListener('scroll', handleScroll);
                 return () => window.removeEventListener('scroll', handleScroll);
             }, []);
 
-            const navigateTo = (page) => {
-                setCurrentPage(page);
-                setMobileMenuOpen(false);
-                window.scrollTo(0, 0);
-            };
-
-            const handleFormSubmit = (e) => {
-                e.preventDefault();
-                setFormSubmitted(true);
-                setTimeout(() => setFormSubmitted(false), 5000);
-                e.target.reset();
-            };
+            const navigateTo = (page) => { setCurrentPage(page); setMobileMenuOpen(false); window.scrollTo(0, 0); };
+            const handleFormSubmit = (e) => { e.preventDefault(); setFormSubmitted(true); setTimeout(() => setFormSubmitted(false), 5000); e.target.reset(); };
 
             return (
                 <>
-                    <Navigation 
-                        currentPage={currentPage}
-                        navigateTo={navigateTo}
-                        mobileMenuOpen={mobileMenuOpen}
-                        setMobileMenuOpen={setMobileMenuOpen}
-                        scrolled={scrolled}
-                    />
-                    
+                    <Navigation currentPage={currentPage} navigateTo={navigateTo} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} scrolled={scrolled} />
                     {currentPage === 'home' && <HomePage navigateTo={navigateTo} />}
                     {currentPage === 'about' && <AboutPage />}
                     {currentPage === 'outreach' && <OutreachPage navigateTo={navigateTo} />}
                     {currentPage === 'donate' && <DonatePage selectedAmount={selectedAmount} setSelectedAmount={setSelectedAmount} formSubmitted={formSubmitted} handleFormSubmit={handleFormSubmit} />}
                     {currentPage === 'volunteer' && <VolunteerPage formSubmitted={formSubmitted} handleFormSubmit={handleFormSubmit} />}
                     {currentPage === 'contact' && <ContactPage formSubmitted={formSubmitted} handleFormSubmit={handleFormSubmit} />}
-                    
                     <Footer navigateTo={navigateTo} />
                 </>
             );
         }
 
-        function Navigation({ currentPage, navigateTo, mobileMenuOpen, setMobileMenuOpen, scrolled }) {
+        function Navigation({ navigateTo, mobileMenuOpen, setMobileMenuOpen, scrolled }) {
             return (
                 <nav className={scrolled ? 'scrolled' : ''}>
                     <div className="nav-container">
-                        <div className="logo" onClick={() => navigateTo('home')}>
-                            Garments From God
-                        </div>
-                        <button 
-                            className="mobile-menu-btn"
-                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        >
-                            ☰
-                        </button>
+                        <div className="logo" onClick={() => navigateTo('home')}>Garments From God</div>
+                        <button className="mobile-menu-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>☰</button>
                         <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
                             <li><a onClick={() => navigateTo('home')}>Home</a></li>
                             <li><a onClick={() => navigateTo('about')}>About</a></li>
@@ -649,106 +163,94 @@
                 <div className="fade-in">
                     <section className="hero">
                         <div className="hero-content">
-                            <h1>Bringing Clothing, Hope, and a Little Help to Those Who Need It</h1>
-                            <p>We're a small group of volunteers who hit the streets every Sunday with clothes, blankets, and whatever else folks need. All volunteer-run. No fancy office. Just neighbors helping neighbors.</p>
+                            <h1>Providing Clothing, Essentials, and Hope to Communities in Need</h1>
+                            <p>A volunteer-led 501(c)(3) nonprofit bringing garments, shoes, blankets, and prayer directly to people who need them most.</p>
                             <div className="cta-buttons">
-                                <button className="btn btn-primary" onClick={() => navigateTo('donate')}>
-                                    Give Essentials to Someone in Need
-                                </button>
-                                <button className="btn btn-secondary" onClick={() => navigateTo('volunteer')}>
-                                    Join Our Sunday Outreach Team
-                                </button>
+                                <button className="btn btn-primary" onClick={() => navigateTo('donate')}>Give Essentials to Someone in Need</button>
+                                <button className="btn btn-secondary" onClick={() => navigateTo('volunteer')}>Join Our Sunday Outreach Team</button>
                             </div>
                         </div>
                     </section>
 
                     <div className="credibility-bar">
-                        <div className="credibility-item">
-                            <strong>Registered 501(c)(3) nonprofit</strong> — donations are 100% tax deductible.
-                        </div>
-                        <div className="credibility-item">
-                            <strong>Serving communities weekly</strong> since 2022.
-                        </div>
-                        <div className="credibility-item">
-                            <strong>10–12 active volunteers</strong> reaching underserved areas every Sunday.
-                        </div>
+                        <div className="credibility-item"><strong>Registered 501(c)(3) nonprofit</strong> — all donations are tax deductible</div>
+                        <div className="credibility-item"><strong>Serving local communities</strong> every Sunday</div>
+                        <div className="credibility-item"><strong>10–12 active volunteers</strong> giving their time each week</div>
                     </div>
 
                     <section>
-                        <h2>How We Serve Our Community</h2>
+                        <h2>What We Do</h2>
                         <div className="card-grid">
                             <div className="card">
+                                <div className="card-icon">👕</div>
+                                <h3>Clothing & Essentials Distribution</h3>
+                                <p>We collect clothing, shoes, socks, blankets, and other basic items and give them directly to people in need.</p>
+                            </div>
+                            <div className="card">
                                 <div className="card-icon">📦</div>
-                                <h3>We Deliver Every Week</h3>
-                                <p>Rain or shine, our volunteers are out there every Sunday bringing clothes, shoes, blankets, hygiene stuff—whatever people need most. We hand it straight to folks who are struggling.</p>
+                                <h3>Sunday Community Outreach</h3>
+                                <p>Every Sunday, our team goes into underserved communities to deliver donations in person.</p>
                             </div>
                             <div className="card">
                                 <div className="card-icon">🙏</div>
-                                <h3>Prayer and Real Conversation</h3>
-                                <p>Look, we know people need more than just stuff. So we take time to actually talk. If someone wants prayer, we're there for that too. No pressure, no agenda—just genuine care.</p>
-                            </div>
-                            <div className="card">
-                                <div className="card-icon">🤝</div>
-                                <h3>Building Community, One Person at a Time</h3>
-                                <p>Every time we go out, it's a chance to treat someone with respect and show them they matter. Because they do. Everyone deserves dignity, no matter their situation.</p>
+                                <h3>Prayer & Support</h3>
+                                <p>Along with essentials, we offer prayer, encouragement, and connection to anyone who wants it.</p>
                             </div>
                         </div>
                     </section>
 
                     <section className="bg-light">
                         <div className="story-content">
-                            <h2>Why We Started This</h2>
-                            <p>Garments From God started when a few of us noticed people in our neighborhood didn't have warm clothes during winter. So we collected what we could—coats, socks, blankets—and started handing them out every Sunday. That was back in 2022.</p>
-                            <p>We're not some big organization with a headquarters. We're just regular people who think everyone deserves basics like warm clothes and a friendly face. Every Sunday morning, we load up whatever's been donated and go find folks who need it. Sometimes it's street corners, sometimes parks. We chat, share what we've got, and pray with anyone who wants that.</p>
-                            <p>Nobody gets paid for this. It's all volunteers and donations from people in the community. Every single dollar or donated item goes straight to the people we're trying to help.</p>
+                            <h2>Our Story</h2>
+                            <p>Garments From God was founded by Robert Lewis with one mission: to serve those in need with compassion and faith. What began as a small act of kindness has grown into a weekly outreach effort serving multiple communities.</p>
                         </div>
                     </section>
 
                     <section>
-                        <h2>Three Ways to Make an Impact</h2>
+                        <h2>How You Can Help</h2>
                         <div className="card-grid">
                             <div className="card">
                                 <h3>Donate Essentials</h3>
-                                <p>We accept new or gently used clothing, shoes, blankets, socks, hygiene products, and other essentials. Your donation goes directly into the hands of someone who needs it.</p>
-                                <button className="btn btn-accent" onClick={() => navigateTo('donate')}>See What We Need Most</button>
-                            </div>
-                            <div className="card">
-                                <h3>Give Financially</h3>
-                                <p>100% of monetary donations fund essential purchases. As a registered 501(c)(3), your contribution is fully tax-deductible.</p>
-                                <button className="btn btn-accent" onClick={() => navigateTo('donate')}>Donate Now</button>
+                                <p>Your support helps us purchase clothing, socks, blankets, and hygiene items.</p>
+                                <button className="btn btn-accent" onClick={() => navigateTo('donate')}>Donate</button>
                             </div>
                             <div className="card">
                                 <h3>Volunteer With Us</h3>
-                                <p>Join our Sunday outreach team. No experience necessary—just a willingness to serve with compassion.</p>
-                                <button className="btn btn-accent" onClick={() => navigateTo('volunteer')}>Get Involved</button>
+                                <p>Come serve with us on Sundays as we deliver items directly to those in need.</p>
+                                <button className="btn btn-accent" onClick={() => navigateTo('volunteer')}>Volunteer</button>
+                            </div>
+                            <div className="card">
+                                <h3>Donate Clothing</h3>
+                                <p>We accept gently used clothing and essential items.</p>
+                                <button className="btn btn-accent" onClick={() => navigateTo('donate')}>Donate Clothing</button>
                             </div>
                         </div>
                     </section>
 
                     <section className="bg-light">
-                        <h2>Stories From the Community</h2>
-                        <div className="testimonial-grid">
-                            <div className="testimonial">
-                                <div className="testimonial-quote">"They didn't just give me a coat. They treated me like I mattered."</div>
-                                <div className="testimonial-author">— James, outreach recipient</div>
+                        <h2>Real Impact</h2>
+                        <div className="card-grid">
+                            <div className="card" style={{textAlign: 'center'}}>
+                                <div style={{fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--primary-color)'}}>1,000+</div>
+                                <p>Garments delivered last year</p>
                             </div>
-                            <div className="testimonial">
-                                <div className="testimonial-quote">"I've been volunteering for six months. It's the most meaningful thing I do all week."</div>
-                                <div className="testimonial-author">— Maria, volunteer team member</div>
+                            <div className="card" style={{textAlign: 'center'}}>
+                                <div style={{fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--primary-color)'}}>Multiple</div>
+                                <p>Communities served weekly</p>
                             </div>
-                            <div className="testimonial">
-                                <div className="testimonial-quote">"Knowing there are people who care enough to show up every Sunday gives me hope."</div>
-                                <div className="testimonial-author">— Sarah, community member</div>
+                            <div className="card" style={{textAlign: 'center'}}>
+                                <div style={{fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--primary-color)'}}>100%</div>
+                                <p>Volunteer-run — every dollar helps people</p>
                             </div>
                         </div>
                     </section>
 
                     <section>
-                        <h2>Where Your Donation Actually Goes</h2>
+                        <h2>Your Donation Makes a Difference</h2>
                         <div className="story-content">
-                            <p>Here's the deal: we're 100% volunteer-run. Nobody's getting a paycheck. No office rent. No admin fees eating up your donation.</p>
-                            <p>When you give clothes or money, it goes straight to the people who need it. That's it. We're a registered 501(c)(3), so financial donations are tax-deductible, and you'll get a receipt for your records.</p>
-                            <button className="btn btn-primary" onClick={() => navigateTo('donate')} style={{marginTop: '1rem'}}>Donate With Confidence</button>
+                            <p>Your donation makes an immediate difference. Every contribution goes toward clothing, essentials, outreach supplies, and transportation.</p>
+                            <p>We are a registered 501(c)(3) nonprofit, so all donations are tax-deductible.</p>
+                            <button className="btn btn-primary" onClick={() => navigateTo('donate')} style={{marginTop: '1rem'}}>Donate Securely</button>
                         </div>
                     </section>
                 </div>
@@ -760,63 +262,41 @@
                 <div className="fade-in" style={{marginTop: '80px'}}>
                     <section className="hero" style={{marginTop: 0}}>
                         <h1>About Garments From God</h1>
-                        <p>A community of volunteers committed to serving people experiencing hardship with dignity, compassion, and practical support.</p>
+                        <p>A community of volunteers serving those in need with compassion and faith.</p>
                     </section>
 
                     <section>
-                        <h2>What We're All About</h2>
+                        <h2>Our Mission</h2>
                         <div className="story-content">
-                            <p>Garments From God exists because we saw people in our community without basic things like warm clothes and toiletries. We figured we could do something about that.</p>
-                            <p>Our whole mission boils down to this: show up every Sunday, bring what folks need, and treat them like human beings. That's it.</p>
+                            <p style={{fontSize: '1.2rem', fontStyle: 'italic', color: 'var(--primary-color)', textAlign: 'center', lineHeight: '1.8', padding: '1rem 0'}}>"Garments From God exists to share warmth, dignity, and hope with those in need. Through community donations and volunteer efforts, we provide essential clothing and personal connection—meeting people where they are, offering compassion, and reminding every soul that they are seen and valued."</p>
                         </div>
                     </section>
 
                     <section className="bg-light">
-                        <h2>How This Started</h2>
+                        <h2>Our Story</h2>
                         <div className="story-content">
-                            <p>It started in winter 2022. A handful of us noticed people in the neighborhood didn't have warm clothes. So we collected what we could—coats, blankets, socks—and started handing them out on Sundays.</p>
-                            <p>What began as maybe 5 people helping a few folks has grown. Now we've got 10-12 regular volunteers, and we're reaching dozens of people every week thanks to donations from the community.</p>
-                            <p>Still, nobody gets paid. It's all volunteers. Every donated item, every dollar—it all goes to the people we're trying to help.</p>
+                            <p>Garments From God was founded by Robert Lewis with one mission: to serve those in need with compassion and faith.</p>
+                            <p>What began as a small act of kindness in 2022 has grown into a weekly outreach effort serving multiple communities. Every Sunday, our team of 10-12 volunteers delivers clothing, essentials, and prayer to those who need it most.</p>
+                            <p>We're not a big organization with a headquarters. We're just a group of regular people who think everyone deserves basics like warm clothes and a friendly face.</p>
                         </div>
                     </section>
 
                     <section>
                         <h2>What Guides Our Work</h2>
                         <div className="card-grid">
-                            <div className="card">
-                                <h3>Dignity</h3>
-                                <p>We treat every person with respect and honor their inherent worth.</p>
-                            </div>
-                            <div className="card">
-                                <h3>Compassion</h3>
-                                <p>We listen, care, and respond to real needs without judgment.</p>
-                            </div>
-                            <div className="card">
-                                <h3>Faithfulness</h3>
-                                <p>We serve consistently, showing up every week regardless of circumstances.</p>
-                            </div>
-                            <div className="card">
-                                <h3>Community</h3>
-                                <p>We believe in the power of neighbors caring for neighbors.</p>
-                            </div>
+                            <div className="card"><h3>Dignity</h3><p>We treat every person with respect and honor their worth.</p></div>
+                            <div className="card"><h3>Compassion</h3><p>We listen, care, and respond to real needs without judgment.</p></div>
+                            <div className="card"><h3>Faith</h3><p>We serve with faith, offering prayer to anyone who welcomes it.</p></div>
+                            <div className="card"><h3>Community</h3><p>We believe in neighbors caring for neighbors.</p></div>
                         </div>
                     </section>
 
                     <section className="bg-light">
                         <h2>Our Impact</h2>
                         <div className="card-grid">
-                            <div className="card" style={{textAlign: 'center'}}>
-                                <div style={{fontSize: '3rem', fontWeight: 'bold', color: 'var(--accent-color)'}}>50+</div>
-                                <p>Individuals served weekly</p>
-                            </div>
-                            <div className="card" style={{textAlign: 'center'}}>
-                                <div style={{fontSize: '3rem', fontWeight: 'bold', color: 'var(--accent-color)'}}>5000+</div>
-                                <p>Items distributed annually</p>
-                            </div>
-                            <div className="card" style={{textAlign: 'center'}}>
-                                <div style={{fontSize: '3rem', fontWeight: 'bold', color: 'var(--accent-color)'}}>100%</div>
-                                <p>Volunteer-run organization</p>
-                            </div>
+                            <div className="card" style={{textAlign: 'center'}}><div style={{fontSize: '3rem', fontWeight: 'bold', color: 'var(--accent-color)'}}>1,000+</div><p>Garments delivered last year</p></div>
+                            <div className="card" style={{textAlign: 'center'}}><div style={{fontSize: '3rem', fontWeight: 'bold', color: 'var(--accent-color)'}}>Multiple</div><p>Communities served weekly</p></div>
+                            <div className="card" style={{textAlign: 'center'}}><div style={{fontSize: '3rem', fontWeight: 'bold', color: 'var(--accent-color)'}}>100%</div><p>Volunteer-run organization</p></div>
                         </div>
                     </section>
                 </div>
@@ -827,69 +307,36 @@
             return (
                 <div className="fade-in" style={{marginTop: '80px'}}>
                     <section className="hero" style={{marginTop: 0}}>
-                        <h1>Our Weekly Outreach</h1>
-                        <p>Every Sunday, we bring clothing, essentials, and human connection directly to people experiencing hardship.</p>
+                        <h1>Sunday Community Outreach</h1>
+                        <p>Every Sunday, we bring clothing, essentials, and prayer directly to people in need.</p>
                     </section>
 
                     <section>
-                        <h2>Essential Items We Provide</h2>
+                        <h2>What We Bring</h2>
                         <div className="items-grid">
-                            <div className="item-card">
-                                <div className="item-icon">🧥</div>
-                                <h4>Clothing</h4>
-                                <p>Coats, jackets, shirts, pants for all ages</p>
-                            </div>
-                            <div className="item-card">
-                                <div className="item-icon">👟</div>
-                                <h4>Footwear</h4>
-                                <p>Shoes, boots, and warm socks</p>
-                            </div>
-                            <div className="item-card">
-                                <div className="item-icon">🛏️</div>
-                                <h4>Warmth</h4>
-                                <p>Blankets, sleeping bags, cold-weather gear</p>
-                            </div>
-                            <div className="item-card">
-                                <div className="item-icon">🧴</div>
-                                <h4>Hygiene</h4>
-                                <p>Soap, shampoo, toothbrushes, personal care</p>
-                            </div>
-                            <div className="item-card">
-                                <div className="item-icon">🎒</div>
-                                <h4>Other Needs</h4>
-                                <p>Backpacks, water bottles, snacks</p>
-                            </div>
+                            <div className="item-card"><div className="item-icon">👕</div><h4>Clothing</h4><p>Shirts, pants, jackets for all ages</p></div>
+                            <div className="item-card"><div className="item-icon">👟</div><h4>Footwear</h4><p>Shoes, boots, and socks</p></div>
+                            <div className="item-card"><div className="item-icon">🧥</div><h4>Cold Weather</h4><p>Coats, blankets, hats, gloves</p></div>
+                            <div className="item-card"><div className="item-icon">🧴</div><h4>Hygiene</h4><p>Toiletries and personal care</p></div>
+                            <div className="item-card"><div className="item-icon">🙏</div><h4>Prayer</h4><p>Support for anyone who wants it</p></div>
                         </div>
                     </section>
 
                     <section className="bg-light">
-                        <h2>Our Sunday Process</h2>
+                        <h2>How It Works</h2>
                         <div className="card-grid">
-                            <div className="card">
-                                <h3>1. Preparation</h3>
-                                <p>Volunteers gather donations, sort items by type and size, and pack them for easy distribution.</p>
-                            </div>
-                            <div className="card">
-                                <h3>2. Delivery</h3>
-                                <p>Our team travels to areas where people experiencing homelessness or hardship gather—parks, street corners, shelters.</p>
-                            </div>
-                            <div className="card">
-                                <h3>3. Connection</h3>
-                                <p>We greet people by name when possible, ask what they need, and offer prayer or conversation if welcomed.</p>
-                            </div>
-                            <div className="card">
-                                <h3>4. Follow-Up</h3>
-                                <p>We return every week, building trust and consistency with the people we serve.</p>
-                            </div>
+                            <div className="card"><h3>1. We Collect</h3><p>Donations come in from the community throughout the week.</p></div>
+                            <div className="card"><h3>2. We Prepare</h3><p>Volunteers sort and organize items for distribution.</p></div>
+                            <div className="card"><h3>3. We Deliver</h3><p>Every Sunday, we go directly to underserved communities.</p></div>
+                            <div className="card"><h3>4. We Connect</h3><p>We talk, listen, and offer prayer to anyone interested.</p></div>
                         </div>
                     </section>
 
                     <section>
-                        <h2>More Than Material Support</h2>
+                        <h2>Join Us on Sunday</h2>
                         <div className="story-content">
-                            <p>We believe people need more than physical items. Our volunteers offer prayer, encouragement, and genuine human connection to anyone who welcomes it.</p>
-                            <p>We never pressure or proselytize. We simply make ourselves available to listen, care, and support people in whatever way feels right for them.</p>
-                            <button className="btn btn-primary" onClick={() => navigateTo('volunteer')} style={{marginTop: '1rem'}}>Volunteer This Sunday</button>
+                            <p>We welcome new volunteers to join our Sunday outreach. No experience needed—just a heart for service.</p>
+                            <button className="btn btn-primary" onClick={() => navigateTo('volunteer')} style={{marginTop: '1rem'}}>Volunteer With Us</button>
                         </div>
                     </section>
                 </div>
@@ -900,63 +347,27 @@
             return (
                 <div className="fade-in" style={{marginTop: '80px'}}>
                     <section className="hero" style={{marginTop: 0}}>
-                        <h1>Give Essentials to Someone in Need</h1>
-                        <p>Your donation provides clothing, warmth, and hope to people experiencing hardship. Every contribution goes directly to those we serve.</p>
+                        <h1>Support Our Mission</h1>
+                        <p>Your donation provides clothing, essentials, and hope to people in need.</p>
                     </section>
 
                     <section>
                         <h2>Donate Money</h2>
                         <div className="story-content">
-                            <p>100% of monetary donations are used to purchase essential items for distribution. We buy what our community needs most—often socks, hygiene products, and cold-weather gear.</p>
-                            <p>As a 501(c)(3) nonprofit, your donation is fully tax-deductible. You will receive a receipt for your records.</p>
+                            <p>Your donation makes an immediate difference. Every contribution goes toward clothing, essentials, outreach supplies, and transportation.</p>
+                            <p>As a 501(c)(3) nonprofit, your donation is fully tax-deductible.</p>
                         </div>
-                        
                         <div className="donation-amounts">
-                            {[25, 50, 100, 250].map(amount => (
-                                <button 
-                                    key={amount}
-                                    className={`amount-btn ${selectedAmount === amount ? 'active' : ''}`}
-                                    onClick={() => setSelectedAmount(amount)}
-                                >
-                                    ${amount}
-                                </button>
-                            ))}
-                            <button 
-                                className={`amount-btn ${selectedAmount === 'other' ? 'active' : ''}`}
-                                onClick={() => setSelectedAmount('other')}
-                            >
-                                Other
-                            </button>
+                            {[25, 50, 100, 250].map(amt => (<button key={amt} className={`amount-btn ${selectedAmount === amt ? 'active' : ''}`} onClick={() => setSelectedAmount(amt)}>${amt}</button>))}
+                            <button className={`amount-btn ${selectedAmount === 'other' ? 'active' : ''}`} onClick={() => setSelectedAmount('other')}>Other</button>
                         </div>
-
                         <div className="form-container">
-                            {formSubmitted && (
-                                <div className="success-message">
-                                    Thank you for your generous donation! You will receive a tax receipt via email.
-                                </div>
-                            )}
+                            {formSubmitted && <div className="success-message">Thank you for your generous donation!</div>}
                             <form onSubmit={handleFormSubmit}>
-                                {selectedAmount === 'other' && (
-                                    <div className="form-group">
-                                        <label>Donation Amount</label>
-                                        <input type="number" placeholder="Enter amount" required />
-                                    </div>
-                                )}
-                                <div className="form-group">
-                                    <label>Full Name</label>
-                                    <input type="text" required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Email Address</label>
-                                    <input type="email" required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Card Number</label>
-                                    <input type="text" placeholder="1234 5678 9012 3456" required />
-                                </div>
-                                <button type="submit" className="btn btn-primary" style={{width: '100%'}}>
-                                    Complete Donation
-                                </button>
+                                {selectedAmount === 'other' && <div className="form-group"><label>Amount</label><input type="number" placeholder="Enter amount" required /></div>}
+                                <div className="form-group"><label>Full Name</label><input type="text" required /></div>
+                                <div className="form-group"><label>Email</label><input type="email" required /></div>
+                                <button type="submit" className="btn btn-primary" style={{width: '100%'}}>Donate Securely</button>
                             </form>
                         </div>
                     </section>
@@ -964,355 +375,15 @@
                     <section className="bg-light">
                         <h2>What We Need Most</h2>
                         <div className="items-grid">
-                            <div className="item-card">
-                                <div className="item-icon">🧥</div>
-                                <h4>Cold-Weather Gear</h4>
-                                <p>Coats, jackets, gloves, hats, scarves</p>
-                            </div>
-                            <div className="item-card">
-                                <div className="item-icon">👟</div>
-                                <h4>Footwear</h4>
-                                <p>Shoes, boots, warm socks</p>
-                            </div>
-                            <div className="item-card">
-                                <div className="item-icon">🛏️</div>
-                                <h4>Blankets</h4>
-                                <p>Sleeping bags, fleece blankets</p>
-                            </div>
-                            <div className="item-card">
-                                <div className="item-icon">🧴</div>
-                                <h4>Hygiene Products</h4>
-                                <p>Travel-size toiletries, personal care</p>
-                            </div>
+                            <div className="item-card"><div className="item-icon">🧥</div><h4>Cold-Weather Gear</h4><p>Coats, jackets, gloves, hats</p></div>
+                            <div className="item-card"><div className="item-icon">👟</div><h4>Footwear</h4><p>Shoes, boots, warm socks</p></div>
+                            <div className="item-card"><div className="item-icon">🛏️</div><h4>Blankets</h4><p>Sleeping bags, fleece blankets</p></div>
+                            <div className="item-card"><div className="item-icon">🧴</div><h4>Hygiene Products</h4><p>Travel-size toiletries</p></div>
                         </div>
                     </section>
 
                     <section>
-                        <h2>Donation Guidelines</h2>
+                        <h2>Donate Clothing</h2>
                         <div className="story-content">
-                            <p><strong>We accept:</strong> New or gently used clothing, shoes, blankets, and hygiene items in clean, usable condition.</p>
-                            <p><strong>We cannot accept:</strong> Torn, stained, or damaged items; expired products; large furniture; or items that require significant repair.</p>
-                            <p><strong>Drop-off information:</strong></p>
-                            <p>Location: TBD<br/>
-                            Hours: By appointment<br/>
-                            Contact: Garmentsfromgodrl@gmail.com | (302) 354-3343</p>
-                        </div>
-                    </section>
-                </div>
-            );
-        }
-
-        function VolunteerPage({ formSubmitted, handleFormSubmit }) {
-            return (
-                <div className="fade-in" style={{marginTop: '80px'}}>
-                    <section className="hero" style={{marginTop: 0}}>
-                        <h1>Join Our Sunday Outreach Team</h1>
-                        <p>Volunteers make everything we do possible. Spend a few hours serving your community with compassion and purpose.</p>
-                    </section>
-
-                    <section>
-                        <h2>What You'll Experience</h2>
-                        <div className="story-content">
-                            <p>Volunteering with Garments From God offers more than service—it offers connection. You'll meet people with powerful stories, work alongside committed volunteers, and witness the immediate impact of your efforts.</p>
-                            <p>Many volunteers describe it as the most meaningful part of their week.</p>
-                        </div>
-                        <div className="testimonial">
-                            <div className="testimonial-quote">"I thought I was helping others. I didn't expect how much it would change me."</div>
-                            <div className="testimonial-author">— Marcus, volunteer for 2 years</div>
-                        </div>
-                    </section>
-
-                    <section className="bg-light">
-                        <h2>Opportunities to Serve</h2>
-                        <div className="card-grid">
-                            <div className="card">
-                                <h3>Sunday Outreach</h3>
-                                <p>Join our weekly distribution team. Help load, transport, and deliver essentials to people in need.</p>
-                            </div>
-                            <div className="card">
-                                <h3>Donation Sorting</h3>
-                                <p>Help organize, clean, and prepare donated items for distribution during weekday or weekend shifts.</p>
-                            </div>
-                            <div className="card">
-                                <h3>Fundraising & Events</h3>
-                                <p>Assist with community events, fundraising campaigns, and awareness-building activities.</p>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2>Sunday Outreach Details</h2>
-                        <div className="story-content">
-                            <p><strong>Time Commitment:</strong> 2–3 hours on Sunday mornings<br/>
-                            <strong>Location:</strong> Meeting point provided upon registration<br/>
-                            <strong>What to Bring:</strong> Comfortable clothing, weather-appropriate gear, willingness to serve<br/>
-                            <strong>Age Requirement:</strong> 16+ (all ages welcome with guardian)</p>
-                            <p>No experience is necessary. We provide orientation, guidance, and support throughout your first outreach experience.</p>
-                        </div>
-                    </section>
-
-                    <section className="bg-light">
-                        <h2>Volunteer Sign-Up</h2>
-                        <div className="form-container">
-                            {formSubmitted && (
-                                <div className="success-message">
-                                    Thank you for your interest! We'll contact you within 24 hours with next steps.
-                                </div>
-                            )}
-                            <form onSubmit={handleFormSubmit}>
-                                <div className="form-group">
-                                    <label>Full Name *</label>
-                                    <input type="text" required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Email Address *</label>
-                                    <input type="email" required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Phone Number *</label>
-                                    <input type="tel" required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Preferred Volunteer Role *</label>
-                                    <select required>
-                                        <option value="">Select a role</option>
-                                        <option value="sunday">Sunday Outreach</option>
-                                        <option value="sorting">Donation Sorting</option>
-                                        <option value="events">Events & Fundraising</option>
-                                        <option value="admin">Administrative Support</option>
-                                    </select>
-                                </div>
-                                <div className="form-group">
-                                    <label>How did you hear about us?</label>
-                                    <input type="text" />
-                                </div>
-                                <div className="form-group">
-                                    <label>Message (optional)</label>
-                                    <textarea placeholder="Tell us about your interests or experience..."></textarea>
-                                </div>
-                                <button type="submit" className="btn btn-primary" style={{width: '100%'}}>
-                                    Submit Application
-                                </button>
-                            </form>
-                        </div>
-                    </section>
-                </div>
-            );
-        }
-
-        function ContactPage({ formSubmitted, handleFormSubmit }) {
-            const [openFaq, setOpenFaq] = useState(null);
-
-            const faqs = [
-                {
-                    question: "What items do you accept?",
-                    answer: "We accept new or gently used clothing, shoes, blankets, hygiene products, and other essentials in clean, usable condition. See our Donate page for details."
-                },
-                {
-                    question: "How do I volunteer?",
-                    answer: "Visit our Get Involved page to sign up. We welcome volunteers every Sunday for outreach and throughout the week for sorting."
-                },
-                {
-                    question: "Are donations tax-deductible?",
-                    answer: "Yes. Garments From God is a registered 501(c)(3) nonprofit. All financial donations are fully tax-deductible. EIN: 12-3456789."
-                },
-                {
-                    question: "Where do you serve?",
-                    answer: "We serve communities in the greater Atlanta area. Our Sunday routes vary based on need."
-                },
-                {
-                    question: "Can I donate money instead of items?",
-                    answer: "Absolutely. Financial donations allow us to purchase exactly what our community needs most. Visit our Donate page to give securely online."
-                }
-            ];
-
-            return (
-                <div className="fade-in" style={{marginTop: '80px'}}>
-                    <section className="hero" style={{marginTop: 0}}>
-                        <h1>Get in Touch</h1>
-                        <p>Have questions about donating, volunteering, or our weekly outreach? We'd love to hear from you.</p>
-                    </section>
-
-                    <section>
-                        <h2>Contact Information</h2>
-                        <div className="card-grid">
-                            <div className="card" style={{textAlign: 'center'}}>
-                                <div style={{fontSize: '3rem', marginBottom: '1rem'}}>📧</div>
-                                <h3>Email</h3>
-                                <p>Garmentsfromgodrl@gmail.com</p>
-                            </div>
-                            <div className="card" style={{textAlign: 'center'}}>
-                                <div style={{fontSize: '3rem', marginBottom: '1rem'}}>📞</div>
-                                <h3>Phone</h3>
-                                <p>(302) 354-3343</p>
-                            </div>
-                            <div className="card" style={{textAlign: 'center'}}>
-                                <div style={{fontSize: '3rem', marginBottom: '1rem'}}>📍</div>
-                                <h3>Address</h3>
-                                <p>123 Community Way<br/>Atlanta, GA 30303</p>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section className="bg-light">
-                        <h2>Send Us a Message</h2>
-                        <div className="form-container">
-                            {formSubmitted && (
-                                <div className="success-message">
-                                    Thank you for your message! We'll respond within 24-48 hours.
-                                </div>
-                            )}
-                            <form onSubmit={handleFormSubmit}>
-                                <div className="form-group">
-                                    <label>Full Name *</label>
-                                    <input type="text" required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Email Address *</label>
-                                    <input type="email" required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Phone Number</label>
-                                    <input type="tel" />
-                                </div>
-                                <div className="form-group">
-                                    <label>Subject *</label>
-                                    <select required>
-                                        <option value="">Select a subject</option>
-                                        <option value="general">General Inquiry</option>
-                                        <option value="donation">Donation Question</option>
-                                        <option value="volunteer">Volunteer Interest</option>
-                                        <option value="partnership">Partnership Opportunity</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                                <div className="form-group">
-                                    <label>Message *</label>
-                                    <textarea required placeholder="How can we help you?"></textarea>
-                                </div>
-                                <button type="submit" className="btn btn-primary" style={{width: '100%'}}>
-                                    Send Message
-                                </button>
-                            </form>
-                        </div>
-                    </section>
-
-                    <section className="bg-light">
-                        <h2>Share Your Feedback or Concern</h2>
-                        <div className="story-content">
-                            <p>We value transparency and continuous improvement. If you have experienced any issues with our services, volunteer coordination, or donation handling, please let us know. Your feedback helps us serve our community better.</p>
-                            <p>All complaints are reviewed confidentially and addressed promptly by our leadership team.</p>
-                        </div>
-                        <div className="form-container">
-                            {formSubmitted && (
-                                <div className="success-message">
-                                    Thank you for your feedback. We take all concerns seriously and will respond within 48 hours.
-                                </div>
-                            )}
-                            <form onSubmit={handleFormSubmit}>
-                                <div className="form-group">
-                                    <label>Your Name</label>
-                                    <input type="text" placeholder="Optional - you may remain anonymous" />
-                                </div>
-                                <div className="form-group">
-                                    <label>Email Address</label>
-                                    <input type="email" placeholder="Required if you want a response" />
-                                </div>
-                                <div className="form-group">
-                                    <label>Type of Concern *</label>
-                                    <select required>
-                                        <option value="">Select type</option>
-                                        <option value="service">Service Quality</option>
-                                        <option value="volunteer">Volunteer Experience</option>
-                                        <option value="donation">Donation Handling</option>
-                                        <option value="communication">Communication Issue</option>
-                                        <option value="conduct">Staff/Volunteer Conduct</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                                <div className="form-group">
-                                    <label>Date of Incident (if applicable)</label>
-                                    <input type="date" />
-                                </div>
-                                <div className="form-group">
-                                    <label>Details of Your Concern *</label>
-                                    <textarea required placeholder="Please provide as much detail as possible to help us address your concern effectively..."></textarea>
-                                </div>
-                                <div className="form-group">
-                                    <label>Preferred Resolution</label>
-                                    <textarea placeholder="How would you like us to resolve this issue? (Optional)"></textarea>
-                                </div>
-                                <button type="submit" className="btn btn-primary" style={{width: '100%'}}>
-                                    Submit Feedback
-                                </button>
-                            </form>
-                        </div>
-                    </section>
-
-                    <section>
-                        <h2>Common Questions</h2>
-                        {faqs.map((faq, index) => (
-                            <div 
-                                key={index}
-                                className="faq-item"
-                                onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                            >
-                                <div className="faq-question">
-                                    {faq.question}
-                                    <span>{openFaq === index ? '−' : '+'}</span>
-                                </div>
-                                {openFaq === index && (
-                                    <div className="faq-answer">{faq.answer}</div>
-                                )}
-                            </div>
-                        ))}
-                    </section>
-                </div>
-            );
-        }
-
-        function Footer({ navigateTo }) {
-            return (
-                <footer>
-                    <div className="footer-content">
-                        <div className="footer-section">
-                            <h4>Garments From God</h4>
-                            <p>Providing clothing, essentials, and hope to communities in need through volunteer-led weekly outreach.</p>
-                            <div className="social-links">
-                                <span className="social-icon">📘</span>
-                                <span className="social-icon">📷</span>
-                                <span className="social-icon">🐦</span>
-                            </div>
-                        </div>
-                        <div className="footer-section">
-                            <h4>Quick Links</h4>
-                            <a onClick={() => navigateTo('home')}>Home</a>
-                            <a onClick={() => navigateTo('about')}>About</a>
-                            <a onClick={() => navigateTo('outreach')}>Outreach</a>
-                            <a onClick={() => navigateTo('donate')}>Donate</a>
-                        </div>
-                        <div className="footer-section">
-                            <h4>Get Involved</h4>
-                            <a onClick={() => navigateTo('volunteer')}>Volunteer</a>
-                            <a onClick={() => navigateTo('contact')}>Contact Us</a>
-                            <a href="#">Newsletter</a>
-                        </div>
-                        <div className="footer-section">
-                            <h4>Contact</h4>
-                            <p>Email: Garmentsfromgodrl@gmail.com</p>
-                            <p>Phone: (302) 354-3343</p>
-                            <p>123 Community Way<br/>Atlanta, GA 30303</p>
-                        </div>
-                    </div>
-                    <div className="footer-bottom">
-                        <p>Garments From God is a registered 501(c)(3) nonprofit organization. EIN: 12-3456789. All donations are tax-deductible to the extent allowed by law.</p>
-                        <p style={{marginTop: '1rem'}}>© 2025 Garments From God. All rights reserved.</p>
-                    </div>
-                </footer>
-            );
-        }
-
-        ReactDOM.render(<App />, document.getElementById('root'));
-    </script>
-</body>
-</html>
+                            <p><strong>We accept:</strong> Gently used clothing, shoes, blankets, and hygiene items in clean condition.</p>
+                            <p><strong>Contact us to arrange drop-off:</strong><br/>Email: Garmentsfromgodrl@gmail.com<br/>Phone: (302) 354-3343</p>
