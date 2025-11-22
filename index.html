@@ -477,25 +477,6 @@
                         </div>
                     </section>
 
-                    <section className="bg-light">
-                        <h2>Share Feedback or Concerns</h2>
-                        <div className="story-content">
-                            <p>We value transparency. If you have any concerns about our services, please let us know. All feedback is reviewed confidentially.</p>
-                        </div>
-                        <div className="form-container">
-                            {formSubmitted && <div className="success-message">Thank you for your feedback. We take all concerns seriously.</div>}
-                            <form onSubmit={handleFormSubmit}>
-                                <div className="form-group"><label>Your Name (optional)</label><input type="text" placeholder="You may remain anonymous" /></div>
-                                <div className="form-group"><label>Email (if you want a response)</label><input type="email" /></div>
-                                <div className="form-group"><label>Type of Concern *</label>
-                                    <select required><option value="">Select...</option><option>Service Quality</option><option>Volunteer Experience</option><option>Donation Handling</option><option>Communication</option><option>Other</option></select>
-                                </div>
-                                <div className="form-group"><label>Details *</label><textarea required placeholder="Please describe your concern..."></textarea></div>
-                                <button type="submit" className="btn btn-primary" style={{width: '100%'}}>Submit Feedback</button>
-                            </form>
-                        </div>
-                    </section>
-
                     <section>
                         <h2>Common Questions</h2>
                         {faqs.map((faq, i) => (
