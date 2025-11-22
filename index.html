@@ -387,3 +387,256 @@
                         <div className="story-content">
                             <p><strong>We accept:</strong> Gently used clothing, shoes, blankets, and hygiene items in clean condition.</p>
                             <p><strong>Contact us to arrange drop-off:</strong><br/>Email: Garmentsfromgodrl@gmail.com<br/>Phone: (302) 354-3343</p>
+                        </div>
+                    </section>
+                </div>
+            );
+        }
+
+        function VolunteerPage({ formSubmitted, handleFormSubmit }) {
+            return (
+                <div className="fade-in" style={{marginTop: '80px'}}>
+                    <section className="hero" style={{marginTop: 0}}>
+                        <h1>Volunteer With Us</h1>
+                        <p>Come serve with us on Sundays as we deliver items directly to those in need.</p>
+                    </section>
+
+                    <section>
+                        <h2>Why Volunteer?</h2>
+                        <div className="story-content">
+                            <p>Volunteering with Garments From God is more than service—it's connection. You'll meet people with powerful stories, work alongside committed volunteers, and make an immediate impact.</p>
+                        </div>
+                    </section>
+
+                    <section className="bg-light">
+                        <h2>Ways to Serve</h2>
+                        <div className="card-grid">
+                            <div className="card"><h3>Sunday Outreach</h3><p>Join our team delivering essentials to communities in need.</p></div>
+                            <div className="card"><h3>Donation Sorting</h3><p>Help organize and prepare donated items for distribution.</p></div>
+                            <div className="card"><h3>Fundraising</h3><p>Assist with community events and awareness campaigns.</p></div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Sunday Details</h2>
+                        <div className="story-content">
+                            <p><strong>Time:</strong> Sunday mornings, 2-3 hours<br/><strong>What to Bring:</strong> Comfortable clothes and a willing heart<br/><strong>Experience:</strong> None needed—we'll show you the ropes!</p>
+                        </div>
+                    </section>
+
+                    <section className="bg-light">
+                        <h2>Sign Up to Volunteer</h2>
+                        <div className="form-container">
+                            {formSubmitted && <div className="success-message">Thank you! We'll contact you soon.</div>}
+                            <form onSubmit={handleFormSubmit}>
+                                <div className="form-group"><label>Full Name *</label><input type="text" required /></div>
+                                <div className="form-group"><label>Email *</label><input type="email" required /></div>
+                                <div className="form-group"><label>Phone *</label><input type="tel" required /></div>
+                                <div className="form-group"><label>How would you like to help?</label>
+                                    <select><option value="">Select...</option><option>Sunday Outreach</option><option>Donation Sorting</option><option>Fundraising</option><option>Any way I can!</option></select>
+                                </div>
+                                <div className="form-group"><label>Message (optional)</label><textarea placeholder="Tell us about yourself..."></textarea></div>
+                                <button type="submit" className="btn btn-primary" style={{width: '100%'}}>Sign Up</button>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            );
+        }
+
+        function ContactPage({ formSubmitted, handleFormSubmit }) {
+            const [openFaq, setOpenFaq] = useState(null);
+            const faqs = [
+                { question: "What items do you accept?", answer: "We accept gently used clothing, shoes, blankets, hygiene products, and other essentials in clean condition." },
+                { question: "How do I volunteer?", answer: "Fill out the volunteer form or contact us. We welcome new volunteers every Sunday!" },
+                { question: "Are donations tax-deductible?", answer: "Yes! Garments From God is a registered 501(c)(3) nonprofit. All donations are tax-deductible." },
+                { question: "Where do you serve?", answer: "We serve multiple local communities. Our Sunday locations rotate based on need." },
+                { question: "Can I donate money instead of items?", answer: "Absolutely! Financial donations help us purchase exactly what's needed most." }
+            ];
+
+            return (
+                <div className="fade-in" style={{marginTop: '80px'}}>
+                    <section className="hero" style={{marginTop: 0}}>
+                        <h1>Contact Us</h1>
+                        <p>Questions about donating, volunteering, or our outreach? We'd love to hear from you.</p>
+                    </section>
+
+                    <section>
+                        <h2>Get in Touch</h2>
+                        <div className="card-grid">
+                            <div className="card" style={{textAlign: 'center'}}><div style={{fontSize: '3rem', marginBottom: '1rem'}}>📧</div><h3>Email</h3><p>Garmentsfromgodrl@gmail.com</p></div>
+                            <div className="card" style={{textAlign: 'center'}}><div style={{fontSize: '3rem', marginBottom: '1rem'}}>📞</div><h3>Phone</h3><p>(302) 354-3343</p></div>
+                        </div>
+                    </section>
+
+                    <section className="bg-light">
+                        <h2>Send a Message</h2>
+                        <div className="form-container">
+                            {formSubmitted && <div className="success-message">Thank you! We'll respond within 24-48 hours.</div>}
+                            <form onSubmit={handleFormSubmit}>
+                                <div className="form-group"><label>Full Name *</label><input type="text" required /></div>
+                                <div className="form-group"><label>Email *</label><input type="email" required /></div>
+                                <div className="form-group"><label>Subject</label>
+                                    <select><option value="">Select...</option><option>General Inquiry</option><option>Donation Question</option><option>Volunteer Interest</option><option>Partnership</option><option>Other</option></select>
+                                </div>
+                                <div className="form-group"><label>Message *</label><textarea required placeholder="How can we help?"></textarea></div>
+                                <button type="submit" className="btn btn-primary" style={{width: '100%'}}>Send Message</button>
+                            </form>
+                        </div>
+                    </section>
+
+                    <section className="bg-light">
+                        <h2>Share Feedback or Concerns</h2>
+                        <div className="story-content">
+                            <p>We value transparency. If you have any concerns about our services, please let us know. All feedback is reviewed confidentially.</p>
+                        </div>
+                        <div className="form-container">
+                            {formSubmitted && <div className="success-message">Thank you for your feedback. We take all concerns seriously.</div>}
+                            <form onSubmit={handleFormSubmit}>
+                                <div className="form-group"><label>Your Name (optional)</label><input type="text" placeholder="You may remain anonymous" /></div>
+                                <div className="form-group"><label>Email (if you want a response)</label><input type="email" /></div>
+                                <div className="form-group"><label>Type of Concern *</label>
+                                    <select required><option value="">Select...</option><option>Service Quality</option><option>Volunteer Experience</option><option>Donation Handling</option><option>Communication</option><option>Other</option></select>
+                                </div>
+                                <div className="form-group"><label>Details *</label><textarea required placeholder="Please describe your concern..."></textarea></div>
+                                <button type="submit" className="btn btn-primary" style={{width: '100%'}}>Submit Feedback</button>
+                            </form>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Common Questions</h2>
+                        {faqs.map((faq, i) => (
+                            <div key={i} className="faq-item" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                                <div className="faq-question">{faq.question}<span>{openFaq === i ? '−' : '+'}</span></div>
+                                {openFaq === i && <div className="faq-answer">{faq.answer}</div>}
+                            </div>
+                        ))}
+                    </section>
+                </div>
+            );
+        }
+
+        function Footer({ navigateTo }) {
+            return (
+                <footer>
+                    <div className="footer-content">
+                        <div className="footer-section">
+                            <h4>Garments From God</h4>
+                            <p>Providing clothing, essentials, and hope to communities in need through volunteer-led weekly outreach.</p>
+                        </div>
+                        <div className="footer-section">
+                            <h4>Quick Links</h4>
+                            <a onClick={() => navigateTo('home')}>Home</a>
+                            <a onClick={() => navigateTo('about')}>About</a>
+                            <a onClick={() => navigateTo('outreach')}>Outreach</a>
+                            <a onClick={() => navigateTo('donate')}>Donate</a>
+                        </div>
+                        <div className="footer-section">
+                            <h4>Get Involved</h4>
+                            <a onClick={() => navigateTo('volunteer')}>Volunteer</a>
+                            <a onClick={() => navigateTo('contact')}>Contact Us</a>
+                        </div>
+                        <div className="footer-section">
+                            <h4>Contact</h4>
+                            <p>Email: Garmentsfromgodrl@gmail.com</p>
+                            <p>Phone: (302) 354-3343</p>
+                        </div>
+                    </div>
+                    <div className="footer-bottom">
+                        <p>Garments From God is a 501(c)(3) nonprofit organization. All donations are tax deductible. Contact: Garmentsfromgodrl@gmail.com</p>
+                        <p style={{marginTop: '1rem'}}>© 2025 Garments From God. All rights reserved.</p>
+                    </div>
+                </footer>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
+
+        function OutreachPage({ navigateTo }) {
+            return (
+                <div className="fade-in" style={{marginTop: '80px'}}>
+                    <section className="hero" style={{marginTop: 0}}>
+                        <h1>Sunday Community Outreach</h1>
+                        <p>Every Sunday, we bring clothing, essentials, and prayer directly to people in need.</p>
+                    </section>
+
+                    <section>
+                        <h2>What We Bring</h2>
+                        <div className="items-grid">
+                            <div className="item-card"><div className="item-icon">👕</div><h4>Clothing</h4><p>Shirts, pants, jackets for all ages</p></div>
+                            <div className="item-card"><div className="item-icon">👟</div><h4>Footwear</h4><p>Shoes, boots, and socks</p></div>
+                            <div className="item-card"><div className="item-icon">🧥</div><h4>Cold Weather</h4><p>Coats, blankets, hats, gloves</p></div>
+                            <div className="item-card"><div className="item-icon">🧴</div><h4>Hygiene</h4><p>Toiletries and personal care</p></div>
+                            <div className="item-card"><div className="item-icon">🙏</div><h4>Prayer</h4><p>Support for anyone who wants it</p></div>
+                        </div>
+                    </section>
+
+                    <section className="bg-light">
+                        <h2>How It Works</h2>
+                        <div className="card-grid">
+                            <div className="card"><h3>1. We Collect</h3><p>Donations come in from the community throughout the week.</p></div>
+                            <div className="card"><h3>2. We Prepare</h3><p>Volunteers sort and organize items for distribution.</p></div>
+                            <div className="card"><h3>3. We Deliver</h3><p>Every Sunday, we go directly to underserved communities.</p></div>
+                            <div className="card"><h3>4. We Connect</h3><p>We talk, listen, and offer prayer to anyone interested.</p></div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Join Us on Sunday</h2>
+                        <div className="story-content">
+                            <p>We welcome new volunteers to join our Sunday outreach. No experience needed—just a heart for service.</p>
+                            <button className="btn btn-primary" onClick={() => navigateTo('volunteer')} style={{marginTop: '1rem'}}>Volunteer With Us</button>
+                        </div>
+                    </section>
+                </div>
+            );
+        }
+
+        function DonatePage({ selectedAmount, setSelectedAmount, formSubmitted, handleFormSubmit }) {
+            return (
+                <div className="fade-in" style={{marginTop: '80px'}}>
+                    <section className="hero" style={{marginTop: 0}}>
+                        <h1>Support Our Mission</h1>
+                        <p>Your donation provides clothing, essentials, and hope to people in need.</p>
+                    </section>
+
+                    <section>
+                        <h2>Donate Money</h2>
+                        <div className="story-content">
+                            <p>Your donation makes an immediate difference. Every contribution goes toward clothing, essentials, outreach supplies, and transportation.</p>
+                            <p>As a 501(c)(3) nonprofit, your donation is fully tax-deductible.</p>
+                        </div>
+                        <div className="donation-amounts">
+                            {[25, 50, 100, 250].map(amt => (<button key={amt} className={`amount-btn ${selectedAmount === amt ? 'active' : ''}`} onClick={() => setSelectedAmount(amt)}>${amt}</button>))}
+                            <button className={`amount-btn ${selectedAmount === 'other' ? 'active' : ''}`} onClick={() => setSelectedAmount('other')}>Other</button>
+                        </div>
+                        <div className="form-container">
+                            {formSubmitted && <div className="success-message">Thank you for your generous donation!</div>}
+                            <form onSubmit={handleFormSubmit}>
+                                {selectedAmount === 'other' && <div className="form-group"><label>Amount</label><input type="number" placeholder="Enter amount" required /></div>}
+                                <div className="form-group"><label>Full Name</label><input type="text" required /></div>
+                                <div className="form-group"><label>Email</label><input type="email" required /></div>
+                                <button type="submit" className="btn btn-primary" style={{width: '100%'}}>Donate Securely</button>
+                            </form>
+                        </div>
+                    </section>
+
+                    <section className="bg-light">
+                        <h2>What We Need Most</h2>
+                        <div className="items-grid">
+                            <div className="item-card"><div className="item-icon">🧥</div><h4>Cold-Weather Gear</h4><p>Coats, jackets, gloves, hats</p></div>
+                            <div className="item-card"><div className="item-icon">👟</div><h4>Footwear</h4><p>Shoes, boots, warm socks</p></div>
+                            <div className="item-card"><div className="item-icon">🛏️</div><h4>Blankets</h4><p>Sleeping bags, fleece blankets</p></div>
+                            <div className="item-card"><div className="item-icon">🧴</div><h4>Hygiene Products</h4><p>Travel-size toiletries</p></div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h2>Donate Clothing</h2>
+                        <div className="story-content">
+                            <p><strong>We accept:</strong> Gently used clothing, shoes, blankets, and hygiene items in clean condition.</p>
+                            <p><strong>Contact us to arrange drop-off:</strong><br/>Email: Garmentsfromgodrl@gmail.com<br/>Phone: (302) 354-3343</p>
