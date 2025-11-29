@@ -485,8 +485,17 @@
             flex: 1;
         }
 
+        /* Mobile-only QR code */
+        .mobile-only-qr {
+            display: none;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
+            .mobile-only-qr {
+                display: block;
+            }
+
             .nav-links {
                 display: none;
                 position: absolute;
@@ -919,11 +928,10 @@
                         <div className="form-container" style={{textAlign: 'center'}}>
                             <h3 style={{color: 'var(--accent-color)', marginBottom: '1.5rem'}}>Donate via Venmo</h3>
                             
-                            <div style={{marginBottom: '1.5rem'}}>
+                            <div className="mobile-only-qr" style={{marginBottom: '1.5rem'}}>
                                 <img src="venmo-qr-robert-lewis.png" alt="Venmo QR Code - Scan to donate" style={{maxWidth: '300px', width: '100%', height: 'auto', margin: '0 auto', display: 'block', border: '2px solid var(--secondary-color)', borderRadius: '10px', padding: '1rem'}} />
+                                <p style={{fontSize: '1.1rem', marginTop: '1rem', marginBottom: '2rem', color: 'var(--text-dark)'}}>Scan the QR code above with your phone camera or Venmo app</p>
                             </div>
-
-                            <p style={{fontSize: '1.1rem', marginBottom: '2rem', color: 'var(--text-dark)'}}>Scan the QR code above with your phone camera or Venmo app</p>
 
                             <div style={{marginTop: '2rem', padding: '1.5rem', background: 'var(--bg-light)', borderRadius: '8px', border: '1px solid var(--secondary-color)'}}>
                                 <p style={{fontSize: '1rem', color: 'var(--text-dark)', lineHeight: '1.8'}}>
