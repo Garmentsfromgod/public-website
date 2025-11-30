@@ -789,7 +789,7 @@
                         <div className="story-content">
                             <p>Garments From God started around 2022. I had recently entered sobriety and was coming up on almost 2 years or so without a drop. But I felt like something was missing. One day I noticed people in the local area who didn't have warm clothes during a pretty cold winter day. And at that point it was like God had a plan all along.</p>
                             <p>So at that point myself and a few of my friends from church started small—collected what we could like coats, socks, blankets and started handing them out every Sunday, rotating two locations we knew had a large amount of people who may be in need.</p>
-                            <p>What began as maybe 5 people helping a few folks has grown. Now we've got 10-12 regular volunteers, and we're reaching dozens of people every week thanks to donations from the community.</p>
+                            <p>What began as maybe 5 people helping a few folks has grown. Now we have dedicated regular volunteers, and we're reaching dozens of people every week thanks to donations from the community.</p>
                             <p>Still, nobody gets paid. It's all volunteers. Every donated item, every dollar—it all goes to the people we're trying to help.</p>
                         </div>
                     </section>
@@ -941,7 +941,7 @@
 
                             <div style={{marginTop: '2rem', padding: '1.5rem', background: 'var(--bg-light)', borderRadius: '8px', border: '1px solid var(--secondary-color)'}}>
                                 <p style={{fontSize: '1rem', color: 'var(--text-dark)', lineHeight: '1.8'}}>
-                                    If you have any issues or need other ways to donate, please reach out to us at <a href="tel:302-354-3343" style={{color: 'var(--primary-color)', textDecoration: 'none', fontWeight: '600'}}>(302) 354-3343</a> or <a href="mailto:Garmentsfromgodrl@gmail.com" style={{color: 'var(--primary-color)', textDecoration: 'none', fontWeight: '600'}}>Garmentsfromgodrl@gmail.com</a>
+                                    If you have any questions or need alternative ways to donate, please contact us at <a href="tel:302-354-3343" style={{color: 'var(--primary-color)', textDecoration: 'none', fontWeight: '600'}}>(302) 354-3343</a> or email us at <a href="mailto:Garmentsfromgodrl@gmail.com" style={{color: 'var(--primary-color)', textDecoration: 'none', fontWeight: '600'}}>Garmentsfromgodrl@gmail.com</a>.
                                 </p>
                             </div>
                         </div>
@@ -979,7 +979,7 @@
                             <p><strong>We accept:</strong> New or gently used clothing, shoes, blankets, and hygiene items in clean, usable condition.</p>
                             <p><strong>We cannot accept:</strong> Torn, stained, or damaged items; expired products; large furniture; or items that require significant repair.</p>
                             <p><strong>Drop-off information:</strong></p>
-                            <p>Location: TBD<br/>
+                            <p>Location: Newark, DE 19702 and surrounding areas<br/>
                             Hours: By appointment<br/>
                             Contact: <a href="mailto:Garmentsfromgodrl@gmail.com" style={{color: 'var(--primary-color)', textDecoration: 'none'}}>Garmentsfromgodrl@gmail.com</a> | (302) 354-3343</p>
                         </div>
@@ -1038,48 +1038,11 @@
                     </section>
 
                     <section className="bg-light">
-                        <h2>Volunteer Sign-Up</h2>
-                        <div className="form-container">
-                            {formSubmitted && (
-                                <div className="success-message">
-                                    Thank you for your interest! We'll contact you within 24 hours with next steps.
-                                </div>
-                            )}
-                            <form onSubmit={handleFormSubmit}>
-                                <div className="form-group">
-                                    <label>Full Name *</label>
-                                    <input type="text" required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Email Address *</label>
-                                    <input type="email" required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Phone Number *</label>
-                                    <input type="tel" required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Preferred Volunteer Role *</label>
-                                    <select required>
-                                        <option value="">Select a role</option>
-                                        <option value="sunday">Sunday Outreach</option>
-                                        <option value="sorting">Donation Sorting</option>
-                                        <option value="events">Events & Fundraising</option>
-                                        <option value="admin">Administrative Support</option>
-                                    </select>
-                                </div>
-                                <div className="form-group">
-                                    <label>How did you hear about us?</label>
-                                    <input type="text" />
-                                </div>
-                                <div className="form-group">
-                                    <label>Message (optional)</label>
-                                    <textarea placeholder="Tell us about your interests or experience..."></textarea>
-                                </div>
-                                <button type="submit" className="btn btn-primary" style={{width: '100%'}}>
-                                    Submit Application
-                                </button>
-                            </form>
+                        <h2>Interested in Volunteering?</h2>
+                        <div className="story-content" style={{textAlign: 'center'}}>
+                            <p>We'd love to have you join our team! Reach out and let us know you're interested.</p>
+                            <p style={{fontSize: '1.2rem', marginTop: '1.5rem'}}><strong>Email:</strong> <a href="mailto:Garmentsfromgodrl@gmail.com" style={{color: 'var(--primary-color)', textDecoration: 'none'}}>Garmentsfromgodrl@gmail.com</a></p>
+                            <p style={{fontSize: '1.2rem'}}><strong>Phone:</strong> <a href="tel:302-354-3343" style={{color: 'var(--primary-color)', textDecoration: 'none'}}>(302) 354-3343</a></p>
                         </div>
                     </section>
                 </div>
@@ -1140,96 +1103,22 @@
 
                     <section className="bg-light">
                         <h2>Send Us a Message</h2>
-                        <div className="form-container">
-                            {formSubmitted && (
-                                <div className="success-message">
-                                    Thank you for your message! We'll respond within 24-48 hours.
-                                </div>
-                            )}
-                            <form onSubmit={handleFormSubmit}>
-                                <div className="form-group">
-                                    <label>Full Name *</label>
-                                    <input type="text" required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Email Address *</label>
-                                    <input type="email" required />
-                                </div>
-                                <div className="form-group">
-                                    <label>Phone Number</label>
-                                    <input type="tel" />
-                                </div>
-                                <div className="form-group">
-                                    <label>Subject *</label>
-                                    <select required>
-                                        <option value="">Select a subject</option>
-                                        <option value="general">General Inquiry</option>
-                                        <option value="donation">Donation Question</option>
-                                        <option value="volunteer">Volunteer Interest</option>
-                                        <option value="partnership">Partnership Opportunity</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                                <div className="form-group">
-                                    <label>Message *</label>
-                                    <textarea required placeholder="How can we help you?"></textarea>
-                                </div>
-                                <button type="submit" className="btn btn-primary" style={{width: '100%'}}>
-                                    Send Message
-                                </button>
-                            </form>
+                        <div className="story-content" style={{textAlign: 'center'}}>
+                            <p>Have a question or want to get in touch? We'd love to hear from you!</p>
+                            <p style={{fontSize: '1.2rem', marginTop: '1.5rem'}}><strong>Email us at:</strong></p>
+                            <p style={{fontSize: '1.3rem'}}><a href="mailto:Garmentsfromgodrl@gmail.com" style={{color: 'var(--primary-color)', textDecoration: 'none'}}>Garmentsfromgodrl@gmail.com</a></p>
+                            <p style={{marginTop: '1rem'}}>We'll do our best to respond within 24–48 hours.</p>
                         </div>
                     </section>
 
                     <section className="bg-light">
                         <h2>Share Your Feedback or Concern</h2>
-                        <div className="story-content">
-                            <p>We value transparency and continuous improvement. If you have experienced any issues with our services, volunteer coordination, or donation handling, please let us know. Your feedback helps us serve our community better.</p>
-                            <p>All complaints are reviewed confidentially and addressed promptly by our leadership team.</p>
-                        </div>
-                        <div className="form-container">
-                            {formSubmitted && (
-                                <div className="success-message">
-                                    Thank you for your feedback. We take all concerns seriously and will respond within 48 hours.
-                                </div>
-                            )}
-                            <form onSubmit={handleFormSubmit}>
-                                <div className="form-group">
-                                    <label>Your Name</label>
-                                    <input type="text" placeholder="Optional - you may remain anonymous" />
-                                </div>
-                                <div className="form-group">
-                                    <label>Email Address</label>
-                                    <input type="email" placeholder="Required if you want a response" />
-                                </div>
-                                <div className="form-group">
-                                    <label>Type of Concern *</label>
-                                    <select required>
-                                        <option value="">Select type</option>
-                                        <option value="service">Service Quality</option>
-                                        <option value="volunteer">Volunteer Experience</option>
-                                        <option value="donation">Donation Handling</option>
-                                        <option value="communication">Communication Issue</option>
-                                        <option value="conduct">Staff/Volunteer Conduct</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                                <div className="form-group">
-                                    <label>Date of Incident (if applicable)</label>
-                                    <input type="date" />
-                                </div>
-                                <div className="form-group">
-                                    <label>Details of Your Concern *</label>
-                                    <textarea required placeholder="Please provide as much detail as possible to help us address your concern effectively..."></textarea>
-                                </div>
-                                <div className="form-group">
-                                    <label>Preferred Resolution</label>
-                                    <textarea placeholder="How would you like us to resolve this issue? (Optional)"></textarea>
-                                </div>
-                                <button type="submit" className="btn btn-primary" style={{width: '100%'}}>
-                                    Submit Feedback
-                                </button>
-                            </form>
+                        <div className="story-content" style={{textAlign: 'center'}}>
+                            <p>We value transparency and continuous improvement. If you have experienced any issues with our services, volunteer coordination, or donation handling, please let us know.</p>
+                            <p style={{marginTop: '1.5rem'}}>All feedback is reviewed confidentially and addressed promptly by our leadership team.</p>
+                            <p style={{fontSize: '1.2rem', marginTop: '1.5rem'}}><strong>Contact us at:</strong></p>
+                            <p style={{fontSize: '1.2rem'}}><a href="tel:302-354-3343" style={{color: 'var(--primary-color)', textDecoration: 'none'}}>(302) 354-3343</a></p>
+                            <p style={{fontSize: '1.2rem'}}><a href="mailto:Garmentsfromgodrl@gmail.com" style={{color: 'var(--primary-color)', textDecoration: 'none'}}>Garmentsfromgodrl@gmail.com</a></p>
                         </div>
                     </section>
 
@@ -1295,11 +1184,6 @@
                 </footer>
             );
         }
-
-        ReactDOM.render(<App />, document.getElementById('root'));
-    </script>
-</body>
-</html>
 
         ReactDOM.render(<App />, document.getElementById('root'));
     </script>
