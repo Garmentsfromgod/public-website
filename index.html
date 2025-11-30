@@ -928,6 +928,12 @@
                         <div className="form-container" style={{textAlign: 'center'}}>
                             <h3 style={{color: 'var(--accent-color)', marginBottom: '1.5rem'}}>Donate via Venmo</h3>
                             
+                            <div style={{marginBottom: '2rem'}}>
+                                <a href="https://venmo.com/u/Robert-Lewis-161" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{display: 'inline-block', fontSize: '1.2rem', padding: '1rem 2.5rem'}}>
+                                    Donate Here
+                                </a>
+                            </div>
+
                             <div className="mobile-only-qr" style={{marginBottom: '1.5rem'}}>
                                 <img src="venmo-qr-robert-lewis.png" alt="Venmo QR Code - Scan to donate" style={{maxWidth: '300px', width: '100%', height: 'auto', margin: '0 auto', display: 'block', border: '2px solid var(--secondary-color)', borderRadius: '10px', padding: '1rem'}} />
                                 <p style={{fontSize: '1.1rem', marginTop: '1rem', marginBottom: '2rem', color: 'var(--text-dark)'}}>Scan the QR code above with your phone camera or Venmo app</p>
@@ -1277,8 +1283,8 @@
                         </div>
                         <div className="footer-section">
                             <h4>Contact</h4>
-                            <p>Email: Garmentsfromgodrl@gmail.com</p>
-                            <p>Phone: (302) 354-3343</p>
+                            <p>Email: <a href="mailto:Garmentsfromgodrl@gmail.com" style={{color: 'var(--white)', textDecoration: 'none'}}>Garmentsfromgodrl@gmail.com</a></p>
+                            <p>Phone: <a href="tel:302-354-3343" style={{color: 'var(--white)', textDecoration: 'none'}}>(302) 354-3343</a></p>
                             <p>Newark, DE 19702 and surrounding areas</p>
                         </div>
                     </div>
@@ -1289,6 +1295,11 @@
                 </footer>
             );
         }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
 
         ReactDOM.render(<App />, document.getElementById('root'));
     </script>
